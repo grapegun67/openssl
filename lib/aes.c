@@ -1,4 +1,4 @@
-#include "./aes.h"
+#include "../inc/aes.h"
 
 int     p_encrypt(unsigned char *plain, unsigned char *cipher, int size, char *iv)
 {
