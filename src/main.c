@@ -32,7 +32,7 @@ int     main(int argc, char *args[])
 
         /* 암호화               */
         p_encrypt(o_sour, o_encrypt, len, iv_aes1);
-        encrypt_size = (len + AES_BLOCK_SIZE) / 16 * 16;
+        encrypt_size = ((len + AES_BLOCK_SIZE) / AES_BLOCK_SIZE) * AES_BLOCK_SIZE;
         memcpy(o_temp, o_encrypt, encrypt_size);
 
         printf("[orginal]");
@@ -40,11 +40,11 @@ int     main(int argc, char *args[])
         printf("[cypher]");
         p_print_byte(o_temp, encrypt_size);
 
-        memcpy(&lastb[0], iv_aes1, 16);
-        memcpy(&lastb[16], o_temp, encrypt_size);
+        memcpy(&lastb[0], iv_aes1, AES_BLOCK_SIZE);
+        memcpy(&lastb[AES_BLOCK_SIZE], o_temp, encrypt_size);
 
         printf("[iv + ciper]");
-        p_print_byte(lastb, encrypt_size + 16);
+        p_print_byte(lastb, encrypt_size + AES_BLOCK_SIZE);
 
         /* 복호화               */
         p_decrypt(lastb, o_decrypt, encrypt_size, iv_aes2);
