@@ -1,9 +1,3 @@
 #AES256 with openssl in C Language
 
-#라이브러리 빌드:
-gcc -fPIC -c aes.c;
-gcc -shared -o libaes.so aes.o
-
-#소스 빌드:
-gcc main.c -c -laes.h;
-gcc main.o -L~/ssl/lib -lssl -lcrypto -laes -o main
+빌드방법: ~/openssl 디렉터리에서 make 명령어 실행
