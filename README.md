@@ -4,4 +4,4 @@ gcc -shared -o libaes.so aes.o
 
 #소스 빌드:
 gcc main.c -c -laes.h
-gcc main.o -L/home/cts/src/chk/user/khg/ssl/lib -lssl -lcrypto -laes -o main
+gcc main.o -L~/ssl/lib -lssl -lcrypto -laes -o main
