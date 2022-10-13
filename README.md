@@ -1,4 +1,4 @@
-#AES256 with openssl
+#AES256 with openssl in C Language
 
 #라이브러리 빌드:
 gcc -fPIC -c aes.c;
